@@ -88,22 +88,11 @@ lastSTATE = normal
 
 def stateSwitch(direction, lastSTATE, stateTIME):
     x, y, z = direction
-
-    # check if off
-    # if z == "U":
-    #     return inactive, 
-    # y-axis
     if y != "-":
         if y == "L":
             return left(lastSTATE, stateTIME)
         if y == "R":
             return right(lastSTATE, stateTIME)
-    # x-axis
-    # if x != "-":
-    #     if x == "F":
-    #         return forwards()
-    #     if x == "B":
-    #         return backwards()
     return normal, stateTIME
 
 def left(LastSTATE, stateTIME):
@@ -161,15 +150,10 @@ if __name__ == "__main__":
             continue
 
         for i in xrange(len(V)):
-            if abs(V[i] - mean[i]) > delta[i]:
+            if abs(V[i]) > delta[i]:
                 D[i] = M[i][0] if V[i] > 0 else M[i][1]
-                # print val, 512, float(val/512)
             else:
                 D[i] = "-"
-                
-            # normalize
-            F[i] = V[i]
-
 
         lastSTATE, stateTIME = stateSwitch(D, lastSTATE, stateTIME)
 
