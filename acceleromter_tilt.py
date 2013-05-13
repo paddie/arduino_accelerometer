@@ -82,7 +82,7 @@ L = 2
 R = 3
 
 # repeat delta
-tick = 1.5
+tick = 1
 stateTIME = 0.0
 lastSTATE = normal
 
